@@ -75,3 +75,160 @@
   </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraud Detection Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <h1>💳 Fraud Detection System</h1>
+      <p>Real-time transaction risk analysis</p>
+    </header>
+
+    <section class="card">
+      <form id="txnForm">
+        <div class="input-group">
+          <label for="accNo">Account Number</label>
+          <input type="number" id="accNo" placeholder="Enter account no" required>
+        </div>
+
+        <div class="input-group">
+          <label for="amount">Transaction Amount</label>
+          <input type="number" id="amount" placeholder="Enter amount" required>
+        </div>
+
+        <div class="input-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="Enter city or branch" required>
+        </div>
+
+        <button type="submit" class="btn">Submit Transaction</button>
+      </form>
+    </section>
+
+    <section class="alert-section">
+      <h2>🚨 Alerts</h2>
+      <div id="alerts" class="alerts-box">No alerts yet</div>
+    </section>
+
+    <footer>
+      <p>© 2025 SmartBank | Secure Transaction System</p>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('txnForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const accNo = document.getElementById('accNo').value;
+      const amount = document.getElementById('amount').value;
+      const location = document.getElementById('location').value;
+
+      document.getElementById('alerts').innerHTML = "Processing...";
+      document.getElementById('alerts').className = "alerts-box loading";
+
+      const response = await fetch('/transaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accNo, amount, location })
+      });
+
+      const data = await response.json();
+      const alertsBox = document.getElementById('alerts');
+
+      if (data.alerts.length === 0) {
+        alertsBox.innerHTML = "✅ No fraud detected!";
+        alertsBox.className = "alerts-box safe";
+      } else {
+        alertsBox.innerHTML = data.alerts.join('<br>🚨 ');
+        alertsBox.className = "alerts-box danger";
+      }
+    });
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraud Detection Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <h1>💳 Fraud Detection System</h1>
+      <p>Real-time transaction risk analysis</p>
+    </header>
+
+    <section class="card">
+      <form id="txnForm">
+        <div class="input-group">
+          <label for="accNo">Account Number</label>
+          <input type="number" id="accNo" placeholder="Enter account no" required>
+        </div>
+
+        <div class="input-group">
+          <label for="amount">Transaction Amount</label>
+          <input type="number" id="amount" placeholder="Enter amount" required>
+        </div>
+
+        <div class="input-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" placeholder="Enter city or branch" required>
+        </div>
+
+        <button type="submit" class="btn">Submit Transaction</button>
+      </form>
+    </section>
+
+    <section class="alert-section">
+      <h2>🚨 Alerts</h2>
+      <div id="alerts" class="alerts-box">No alerts yet</div>
+    </section>
+
+    <footer>
+      <p>© 2025 SmartBank | Secure Transaction System</p>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('txnForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const accNo = document.getElementById('accNo').value;
+      const amount = document.getElementById('amount').value;
+      const location = document.getElementById('location').value;
+
+      document.getElementById('alerts').innerHTML = "Processing...";
+      document.getElementById('alerts').className = "alerts-box loading";
+
+      const response = await fetch('/transaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accNo, amount, location })
+      });
+
+      const data = await response.json();
+      const alertsBox = document.getElementById('alerts');
+
+      if (data.alerts.length === 0) {
+        alertsBox.innerHTML = "✅ No fraud detected!";
+        alertsBox.className = "alerts-box safe";
+      } else {
+        alertsBox.innerHTML = data.alerts.join('<br>🚨 ');
+        alertsBox.className = "alerts-box danger";
+      }
+    });
+  </script>
+</body>
+</html>
+
