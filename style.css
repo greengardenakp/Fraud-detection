@@ -1,0 +1,147 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-container {
+  width: 95%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  padding: 30px 40px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+header p {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin-bottom: 25px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: #f2f2f2;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #00c6ff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+}
+
+.btn:hover {
+  background-color: #0072ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.5);
+}
+
+.alert-section {
+  margin-top: 20px;
+}
+
+.alert-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.alerts-box {
+  min-height: 60px;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+}
+
+.alerts-box.safe {
+  background: rgba(0, 255, 100, 0.15);
+  color: #9effa3;
+  border: 1px solid #00ff7f;
+}
+
+.alerts-box.danger {
+  background: rgba(255, 0, 0, 0.15);
+  color: #ffb6b6;
+  border: 1px solid #ff4c4c;
+}
+
+.alerts-box.loading {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 1px dashed #ccc;
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  color: #bbb;
+}
